@@ -21,14 +21,9 @@ function parseJQ(html){
         boroughInfo._data.message = "Unknown";
         findDistrict._data.message = "Sorry, I couldn't find that postcode.";
       }
-
-
 }
 
 /*===== POSTCODE FORM LOGIC =====*/
-// To do: add validation logic to strip spaces from postcode and
-// ensure format is valid. "That's too many letters!" / "Sorry I couldn't find that postcode"
-
 var findDistrict = new Vue({
   el: '#findme',
   data: {
@@ -53,16 +48,14 @@ var findDistrict = new Vue({
         }
       }
   }
-
 });
 
-/*===== COUNCILLOR INFO FILL =====*/
+/*===== RETURNED BOROUGH INFO FILL =====*/
 var boroughInfo = new Vue({
   el: '#borough-info',
   data: {
     message: ""
   }
-  // add a method to update ?
 });
 
 /*===== LEAFLET MAP =====*/
@@ -75,11 +68,11 @@ L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}
 
 //Load arrondissements json with jQuery
 $.getJSON("districtelect.json", function(json) {
-  //Add to map as new layer
     console.log(json);
     addMapFeatures(json);
 });
 
+//Add features to map as new layer
 function addMapFeatures(geojson){
   L.geoJSON(geojson, {
     style: function(feature){
