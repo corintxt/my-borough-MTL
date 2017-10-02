@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>My MTL Boroughs</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="https://unpkg.com/vue"></script>
+  <script src="js/jquery-3.2.1.js"></script>
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+  crossorigin=""/>
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 5%">
+        <h2>My MTL Boroughs</h4>
+        <h4>Enter your postcode:</h3>
+        <div class="eight columns" id="findme">
+          <input class="u-full-width" v-model="postcode" placeholder="XXX XXX">
+            <div>Your postcode is: <b>{{ postcode.toUpperCase() }}</b></div>
+            <p> {{ message }}</p>
+          <button class="button-primary" type="button" v-on:click="findme()">Find me!</button>
+        </div>
+      </div>
+        <div class="row">
+          <div class="two-thirds column" style="margin-top: 5%">
+              <div class="map-holder" id="map"></div>
+          </div>
+          <div class="one-third column" style="margin-top: 5%">
+              <div class="borough">
+                <h3>Your borough is:
+                    <span id="borough-info">
+                      {{ message }}
+                    </span>
+                </h3>
+                <!-- <p>Your borough mayor is: </p>
+                <p>From the party: </p> -->
+              </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+            <div class="one-half column" style="margin-top: 5%">
+                <h5>Candidates for election:</h5>
+            </div>
+        </div> -->
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+   <script src="app.js"></script>
+</body>
+</html>
